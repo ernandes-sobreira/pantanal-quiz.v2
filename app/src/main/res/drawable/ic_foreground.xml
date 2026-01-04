@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Um ícone simples: gota + folha -->
+    <path
+        android:fillColor="#1F6F5B"
+        android:pathData="M54,16 C42,32 36,42 36,54 a18,18 0 1,0 36,0 C72,42 66,32 54,16 z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,40 C48,40 44,45 44,51 c0,8 8,15 10,17 c2,-2 10,-9 10,-17 c0,-6 -4,-11 -10,-11 z"
+        android:fillAlpha="0.65"/>
+    <path
+        android:fillColor="#1F6F5B"
+        android:pathData="M30,70 C42,64 52,64 64,70 C54,76 44,78 30,70 z"
+        android:fillAlpha="0.95"/>
+</vector>

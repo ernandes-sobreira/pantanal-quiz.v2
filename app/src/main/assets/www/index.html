@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Pantanal Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🐆</div>
+      <div>
+        <div class="title">Pantanal Quiz</div>
+        <div class="subtitle">Ciência rápida, leve e com um tiquinho de humor.</div>
+      </div>
+    </div>
+    <button id="btnHelp" class="chip" title="Como jogar">Como jogar?</button>
+  </header>
+
+  <main class="app" id="app">
+    <!-- Home -->
+    <section class="card screen" id="screenHome">
+      <h1>Você é guardião(a) do Pantanal? 🌿💧</h1>
+      <p class="lead">
+        Responda perguntas curtinhas sobre o <b>Pantanal</b> e seus <b>serviços ecossistêmicos</b>
+        (água, carbono, peixes, biodiversidade, cultura!). São <b>5 níveis</b>.
+        Cada nível fica um pouquinho mais desafiador — sem estresse.
+      </p>
+
+      <div class="row">
+        <label class="field">
+          <span>Seu nome (aparece no fim):</span>
+          <input id="playerName" maxlength="18" placeholder="Ex.: Ana, Davi, Joana..." />
+        </label>
+      </div>
+
+      <div class="grid2">
+        <div class="mini">
+          <div class="miniIcon">🧠</div>
+          <div class="miniTxt">
+            <b>Curto e viciante</b><br/>
+            Cada fase tem 6 perguntas.
+          </div>
+        </div>
+        <div class="mini">
+          <div class="miniIcon">🌎</div>
+          <div class="miniTxt">
+            <b>Ciência de verdade</b><br/>
+            Explicação rápida em cada resposta.
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnStart" class="btn primary">Começar ▶</button>
+        <button id="btnContinue" class="btn ghost">Continuar</button>
+      </div>
+
+      <div class="footerHint">
+        Dica: Se errar, tudo bem. Até onça escorrega no barranco às vezes. 😅
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="card screen hidden" id="screenQuiz">
+      <div class="status">
+        <div class="pill" id="pillLevel">Nível 1</div>
+        <div class="pill" id="pillProgress">1/6</div>
+        <div class="pill" id="pillScore">⭐ 0</div>
+      </div>
+
+      <div class="questionBox">
+        <div class="qTitle" id="qTitle">Pergunta</div>
+        <div class="qText" id="qText">...</div>
+      </div>
+
+      <div class="options" id="options"></div>
+
+      <div class="explain hidden" id="explainBox">
+        <div class="explainTitle" id="explainTitle">Boa!</div>
+        <div class="explainText" id="explainText"></div>
+        <div class="actions">
+          <button id="btnNext" class="btn primary">Próxima</button>
+        </div>
+      </div>
+
+      <div class="tinyNote">
+        Tempo de tela saudável: jogue rapidinho e volte pro mundo real (que é onde a ciência acontece). 😄
+      </div>
+    </section>
+
+    <!-- Level complete -->
+    <section class="card screen hidden" id="screenLevelUp">
+      <div class="bigBadge" id="bigBadge">🏆</div>
+      <h2 id="levelUpTitle">Nível completo!</h2>
+      <p class="lead" id="levelUpText">...</p>
+
+      <div class="progressBar">
+        <div class="progressFill" id="progressFill" style="width:20%"></div>
+      </div>
+
+      <div class="actions">
+        <button id="btnNextLevel" class="btn primary">Avançar de fase</button>
+        <button id="btnHome" class="btn ghost">Voltar ao início</button>
+      </div>
+    </section>
+
+    <!-- Final -->
+    <section class="card screen hidden" id="screenFinal">
+      <div class="bigBadge">🌈</div>
+      <h2 id="finalTitle">Parabéns!</h2>
+      <p class="lead" id="finalText">...</p>
+
+      <div class="stats">
+        <div class="stat"><span>⭐ Pontos</span><b id="finalScore">0</b></div>
+        <div class="stat"><span>✅ Acertos</span><b id="finalRight">0</b></div>
+        <div class="stat"><span>❌ Erros</span><b id="finalWrong">0</b></div>
+      </div>
+
+      <div class="shareBox">
+        <label class="field">
+          <span>Copiar resultado para compartilhar:</span>
+          <textarea id="shareText" rows="4" readonly></textarea>
+        </label>
+        <div class="actions">
+          <button id="btnCopy" class="btn primary">Copiar</button>
+          <button id="btnRestart" class="btn ghost">Jogar de novo</button>
+        </div>
+      </div>
+
+      <div class="footerHint">
+        Missão extra: conte pra alguém <b>um serviço ecossistêmico</b> do Pantanal hoje. 🌿
+      </div>
+    </section>
+
+    <!-- Modal Help -->
+    <div class="modal hidden" id="helpModal" role="dialog" aria-modal="true">
+      <div class="modalCard">
+        <div class="modalTop">
+          <b>Como jogar</b>
+          <button class="chip" id="btnCloseHelp">Fechar</button>
+        </div>
+        <div class="modalBody">
+          <ul>
+            <li>São <b>5 níveis</b>, cada um com <b>6 perguntas</b>.</li>
+            <li>Você escolhe uma alternativa. O app mostra a resposta e uma explicação curtinha.</li>
+            <li>Acertou? Ganha ⭐. Errou? Sem drama — você aprende na explicação.</li>
+            <li>No final, dá pra <b>copiar seu resultado</b> e mandar no grupo.</li>
+          </ul>
+          <p class="lead">
+            Tema central: <b>serviços ecossistêmicos do Pantanal</b> (água, carbono, pesca, biodiversidade, cultura, regulação climática).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="confetti.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
