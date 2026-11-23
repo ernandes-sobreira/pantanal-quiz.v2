@@ -4,8 +4,8 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/pantanal_launcher"
+        android:roundIcon="@drawable/pantanal_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.PantanalQuiz">
 
