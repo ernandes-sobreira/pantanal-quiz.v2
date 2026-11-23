@@ -220,3 +220,32 @@ textarea{ resize:none; }
   .qText{ font-size:17px; }
   .stats{ grid-template-columns: 1fr; }
 }
+
+/* Identidade Pantanal Quiz — assets SVG locais, sem dependencias de rede */
+:root {
+  --bg1:#d9f2ea; --bg2:#c4e9fc; --bg3:#fff0bf;
+  --ink:#153a54; --muted:#44677a;
+  --primary:#0878b8; --primary2:#09588d;
+  --card:#ffffffec; --card2:#fff;
+  --shadow:0 12px 35px rgba(7,61,103,.13);
+}
+body { background:linear-gradient(180deg,#bde7ff 0%,#eaf7f7 54%,#fff4d7 100%); }
+.bg-blobs { background:url("pantanal-cenario.svg") center bottom / cover no-repeat; opacity:.18; }
+.blob { display:none; }
+.topbar { background:rgba(241,250,255,.9); border-bottom:1px solid #bfd8e6; }
+.logo { background:transparent; box-shadow:none; overflow:hidden; }
+.logo img { width:44px;height:44px;border-radius:12px;display:block; }
+.subtitle { color:#486b7e; }
+.pantanal-hero { position:relative; height:180px; margin:-18px -18px 18px;
+ background:url("pantanal-cenario.svg") center center / cover no-repeat;
+ border-radius:20px 20px 14px 14px; overflow:hidden; }
+.hero-label { position:absolute;bottom:12px;left:14px;background:#ffffffef;
+ padding:8px 12px;color:#134e76;font-weight:800;border-radius:10px; }
+.btn.primary { background:linear-gradient(120deg,#087fbd,#075287); }
+.btn.ghost { color:#075287;border-color:#bdd5e8; }
+.chip { color:#075287; border-color:#bdd5e8; }
+.opt.correct { border-color:#2d9b6d; }
+.opt.wrong { border-color:#ce5268; }
+.qTitle { color:#075e94; }
+.progressFill { background:linear-gradient(90deg,#087fbd,#ffd365); }
+@media(max-width:520px) { .pantanal-hero{height:155px;} }
