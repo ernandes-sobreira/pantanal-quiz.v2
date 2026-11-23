@@ -58,3 +58,7 @@ Para publicar na Play Store, gere um **AAB** no Android Studio:
 
 ## 📄 Licença
 MIT (veja `LICENSE`).
+
+## Teste de instalação do APK (novembro de 2026)
+
+A compilação de teste é disparada por mudanças na branch `main` e gera o artefato `pantanal-quiz-debug-apk` em **Actions → Android CI → execução mais recente → Artifacts** quando concluída com sucesso. Descompacte o ZIP e instale `app-debug.apk` em um aparelho Android, autorizando instalação desta fonte quando solicitado. APK de debug é apenas para teste; não é uma versão comercial assinada para distribuição.
