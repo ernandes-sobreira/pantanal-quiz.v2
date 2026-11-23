@@ -113,7 +113,6 @@
       state.score += 2 + (state.level-1); // cresce com nível
       state.right += 1;
       $("explainTitle").textContent = "Boa! ✅";
-      confettiBoom();
     }else{
       btnEl.classList.add("wrong");
       const correctBtn = buttons[q.answer];
@@ -188,7 +187,6 @@ Eu sou guardião(a) do Pantanal! 🐆💧
 
     $("shareText").value = msg;
     saveProgress();
-    confettiBoom();
   }
 
   // UI wiring
@@ -215,6 +213,12 @@ Eu sou guardião(a) do Pantanal! 🐆💧
     show("quiz");
     renderQuestion();
   }
+
+  $("btnBack").addEventListener("click", ()=>{
+    saveProgress();
+    show("home");
+    $("btnContinue").style.display = "inline-flex";
+  });
 
   $("btnNext").addEventListener("click", next);
   $("btnNextLevel").addEventListener("click", goNextLevel);
@@ -253,9 +257,6 @@ Eu sou guardião(a) do Pantanal! 🐆💧
   $("playerName").value = state.name || "";
   show("home");
 
-  // confetti hook
-  function confettiBoom(){
-    if(window.confettiBoom) window.confettiBoom();
-  }
-  window.confettiBoom = confettiBoom;
+  // Confete desativado nesta versão de teste para evitar travamento.
+  // O efeito original permanece no arquivo confetti.js, sem sobrescrita recursiva.
 })();
