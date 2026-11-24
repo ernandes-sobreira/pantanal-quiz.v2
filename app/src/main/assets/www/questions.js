@@ -1,200 +1,182 @@
 /**
- * Perguntas por nível (1..5)
- * Para adicionar: copie um objeto e edite.
+ * Perguntas por nível (1..5), 8 por nível.
+ * Campos: q (pergunta), options (4 alternativas), answer (índice da correta), explain.
+ * O app embaralha as perguntas e a ordem das alternativas a cada partida.
+ * Regra de escrita: as erradas devem ser plausíveis e a correta não pode ser sempre a mais longa.
  */
 window.QUESTION_BANK = {
   1: [
-    {
-      q: "O Pantanal é famoso por quê?",
-      options: ["Por ter neve o ano todo", "Por ser uma das maiores áreas úmidas do planeta", "Por ser um deserto de areia", "Por ter vulcões ativos"],
-      answer: 1,
-      explain: "O Pantanal é uma das maiores áreas úmidas do mundo. Água indo e vindo = vida pulando de alegria (e jacaré também)."
-    },
-    {
-      q: "Serviço ecossistêmico é…",
-      options: ["Um tipo de aplicativo", "Algo que a natureza faz e ajuda a gente", "Um peixe com Wi‑Fi", "Uma roupa de onça"],
-      answer: 1,
-      explain: "Serviços ecossistêmicos são benefícios que os ecossistemas oferecem: água, alimento, clima, cultura, proteção contra enchentes… (sem cobrar mensalidade!)."
-    },
-    {
-      q: "Qual desses é um serviço do Pantanal para as pessoas?",
-      options: ["Regulação de cheias e armazenamento de água", "Transformar tudo em concreto", "Criar fumaça para o céu ficar cinza", "Acabar com os peixes"],
+    { q: "Em quais países fica o Pantanal?",
+      options: ["Brasil, Bolívia e Paraguai", "Brasil, Peru e Colômbia", "Brasil, Argentina e Uruguai", "Brasil, Venezuela e Guiana"],
       answer: 0,
-      explain: "Áreas úmidas seguram água, recarregam aquíferos e ajudam a reduzir extremos de cheias e secas."
-    },
-    {
-      q: "Um animal símbolo do Pantanal é…",
-      options: ["Urso polar", "Onça‑pintada", "Pinguim imperador", "Canguru"],
+      explain: "A maior parte do Pantanal está no Brasil, e o restante fica na Bolívia e no Paraguai." },
+    { q: "Quais estados brasileiros têm Pantanal?",
+      options: ["Goiás, Tocantins e o Distrito Federal", "Mato Grosso e Mato Grosso do Sul", "Rondônia, Acre e Amazonas", "Paraná e São Paulo"],
       answer: 1,
-      explain: "Onça‑pintada é um dos ícones do Pantanal. Ela não precisa de capa de super‑herói. Ela já é. 🐆"
-    },
-    {
-      q: "O que acontece quando o Pantanal tem muita biodiversidade?",
-      options: ["O ecossistema fica mais frágil", "A natureza funciona melhor e mais gente se beneficia", "Os rios param de correr", "As árvores viram plástico"],
+      explain: "No Brasil, o Pantanal ocupa parte de Mato Grosso e de Mato Grosso do Sul." },
+    { q: "Qual é o principal rio do Pantanal?",
+      options: ["Rio São Francisco", "Rio Tocantins", "Rio Paraguai", "Rio Xingu"],
+      answer: 2,
+      explain: "O rio Paraguai recebe os rios que descem do planalto e drena toda a planície pantaneira." },
+    { q: "Qual animal do Pantanal é o maior roedor do mundo?",
+      options: ["Cutia", "Paca", "Ouriço-cacheiro", "Capivara"],
+      answer: 3,
+      explain: "A capivara é o maior roedor do mundo e vive perto da água, onde se alimenta de capim e plantas aquáticas." },
+    { q: "Qual ave é considerada símbolo do Pantanal?",
+      options: ["Tuiuiú", "Gralha-azul", "Quero-quero", "Sabiá-laranjeira"],
+      answer: 0,
+      explain: "O tuiuiú é uma cegonha grande, de pescoço preto e papo vermelho, e é a ave símbolo do Pantanal." },
+    { q: "O que é um serviço ecossistêmico?",
+      options: ["Uma taxa paga para entrar em parques nacionais", "Um benefício que a natureza dá às pessoas", "Um serviço público de coleta de lixo", "Uma licença do governo para usar a terra"],
       answer: 1,
-      explain: "Biodiversidade costuma aumentar a resiliência do ecossistema, ajudando a manter funções como pesca, controle de pragas e ciclos de nutrientes."
-    },
-    {
-      q: "Carbono no Pantanal pode ficar…",
-      options: ["Só no celular", "No solo (sedimento), na água e no ar", "Apenas dentro de pedras de diamante", "Somente em nuvens de algodão-doce"],
-      answer: 1,
-      explain: "O carbono circula: pode estar no sedimento (matéria orgânica), dissolvido na água e também na atmosfera (CO₂, CH₄)."
-    }
+      explain: "Água limpa, peixe, polinização e paisagem para o turismo são exemplos de benefícios que a natureza oferece às pessoas." },
+    { q: "Por que o Pantanal é chamado de área úmida?",
+      options: ["Chove todos os dias, durante o ano inteiro", "Fica abaixo do nível do mar, como a Holanda", "Grande parte da planície alaga todo ano", "Recebe água salgada do oceano Atlântico"],
+      answer: 2,
+      explain: "Na época das chuvas os rios transbordam e grande parte da planície fica alagada por meses." },
+    { q: "Qual destes é um serviço de provisão?",
+      options: ["Beleza da paisagem para o turismo", "Controle das cheias pela planície", "Formação do solo ao longo do tempo", "Peixe para alimento e renda"],
+      answer: 3,
+      explain: "Serviços de provisão são produtos que tiramos da natureza, como peixe, água e madeira." }
   ],
 
   2: [
-    {
-      q: "Quando áreas úmidas armazenam água e liberam devagar, isso ajuda a…",
-      options: ["Aumentar enchentes", "Manter rios mais estáveis em épocas secas", "Secar tudo de uma vez", "Sumir com as nascentes"],
-      answer: 1,
-      explain: "É como uma esponja gigante: absorve na cheia e solta aos poucos na seca, ajudando a estabilidade hídrica."
-    },
-    {
-      q: "Qual serviço ecossistêmico está ligado à pesca?",
-      options: ["Provisão de alimento e renda", "Transformar peixe em pedra", "Apagar o rio com borracha", "Fazer peixes respirarem fumaça"],
+    { q: "O que é o pulso de inundação?",
+      options: ["O ciclo anual de cheia e seca", "A força da correnteza nas corredeiras", "A subida da maré vinda do oceano", "O barulho da água batendo no barranco"],
       answer: 0,
-      explain: "A pesca depende de habitat, pulso de inundação e qualidade da água — e gera alimento e renda."
-    },
-    {
-      q: "O ‘pulso de inundação’ do Pantanal é…",
-      options: ["Um tipo de música", "A variação anual de cheias e secas que organiza a vida", "Um remédio", "Um esporte olímpico"],
+      explain: "A alternância entre cheia e seca organiza a vida no Pantanal: reprodução de peixes, alimento das aves e crescimento das plantas." },
+    { q: "Como a água da cheia se comporta na planície?",
+      options: ["Sobe e desce no mesmo dia, como a maré do mar", "Espalha-se devagar e leva meses para escoar", "Some em poucos dias pelo solo arenoso da planície", "Chega do mar subindo pelo rio Paraguai"],
       answer: 1,
-      explain: "Cheia e seca em ritmo natural estruturam reprodução de peixes, dispersão de sementes e produtividade."
-    },
-    {
-      q: "Plantas aquáticas e algas fazem fotossíntese. Isso significa que elas…",
-      options: ["Comem nuvem", "Usam luz para produzir energia e capturar CO₂", "Produzem plástico", "Viraram robôs"],
-      answer: 1,
-      explain: "Fotossíntese captura CO₂ e produz matéria orgânica, base da cadeia alimentar."
-    },
-    {
-      q: "Qual ação mais ajuda a conservar serviços ecossistêmicos?",
-      options: ["Queimadas sem controle", "Proteção de nascentes e matas ciliares", "Jogar lixo no rio", "Desmatar áreas alagáveis"],
-      answer: 1,
-      explain: "Matas ciliares protegem margens, filtram sedimentos e nutrientes, e mantêm a água mais saudável."
-    },
-    {
-      q: "Turismo de natureza no Pantanal pode ser…",
-      options: ["Um serviço cultural/ecoturístico", "Uma forma de destruir tudo rápido", "Uma máquina de fumaça", "Uma tempestade artificial"],
+      explain: "A planície é muito plana, então a água escoa devagar e o pico da cheia chega mais tarde nas partes mais ao sul." },
+    { q: "No Pantanal, o que é uma cordilheira?",
+      options: ["Uma serra de pedra com mais de mil metros de altura", "Um canal que liga duas lagoas na época da cheia", "Terreno mais alto, com mata, que não alaga", "Uma lagoa rasa que seca totalmente todo ano"],
+      answer: 2,
+      explain: "Cordilheiras são faixas de terra um pouco mais altas, cobertas de mata, que servem de abrigo para animais na cheia." },
+    { q: "E o que é um corixo?",
+      options: ["Um morro de pedra isolado no meio do campo", "Um tipo de peixe de couro dos rios", "Uma ilha de mata redonda no meio do campo", "Um canal que liga rios e baías na cheia"],
+      answer: 3,
+      explain: "Corixos são canais naturais por onde a água corre entre rios e baías durante a cheia." },
+    { q: "Onde a arara-azul faz a maior parte dos ninhos no Pantanal?",
+      options: ["Em ocos do tronco do manduvi", "Em buracos no barranco do rio", "Em ninhos de galhos no chão", "No alto de palmeiras sem folhas"],
       answer: 0,
-      explain: "Experiências culturais e recreação na natureza são serviços ecossistêmicos culturais — quando bem manejados."
-    }
+      explain: "A arara-azul depende de árvores com ocos grandes, e no Pantanal o manduvi é a mais usada para os ninhos." },
+    { q: "O que é a piracema?",
+      options: ["A pesca de peixes com rede durante a época da seca", "A subida dos peixes rio acima para desovar", "A época do ano em que os rios ficam mais limpos", "A migração das aves para o hemisfério norte"],
+      answer: 1,
+      explain: "Na piracema muitos peixes nadam rio acima para desovar. Por isso a pesca é restrita nesse período." },
+    { q: "Como a mata ciliar protege o rio?",
+      options: ["Deixa a água mais salgada e mais transparente", "Impede que a água da chuva chegue até o rio", "Segura o solo da margem e filtra sedimentos", "Aumenta a velocidade da correnteza do rio"],
+      answer: 2,
+      explain: "As raízes seguram o barranco e a vegetação retém terra e nutrientes que escorreriam para a água." },
+    { q: "Qual destes é um serviço cultural?",
+      options: ["Água para abastecer as cidades da região", "Carbono guardado no solo das áreas úmidas", "Polinização de lavouras feita por abelhas", "Ecoturismo e saberes tradicionais"],
+      answer: 3,
+      explain: "Serviços culturais são benefícios não materiais: lazer, turismo, identidade e conhecimento tradicional." }
   ],
 
   3: [
-    {
-      q: "Quando o solo e a vegetação são removidos, o que pode piorar?",
-      options: ["Erosão e assoreamento dos rios", "A água fica sempre cristalina", "Aumenta a biodiversidade automaticamente", "Os peixes ganham capacete"],
+    { q: "O que é o aguapé?",
+      options: ["Uma planta aquática que flutua", "Um peixe de couro dos rios grandes", "Uma ave que migra para o sul na seca", "Um tipo de argila do fundo das baías"],
       answer: 0,
-      explain: "Sem cobertura vegetal, aumenta erosão; sedimentos vão pros rios e podem afetar habitats e qualidade da água."
-    },
-    {
-      q: "Um exemplo de ‘regulação climática’ pelo ecossistema é…",
-      options: ["Produzir mais CO₂", "Armazenar carbono em plantas e no solo", "Derreter gelo no freezer", "Aumentar calor urbano"],
+      explain: "O aguapé é uma macrófita flutuante. Forma grandes bancos nas baías e serve de abrigo para peixes pequenos." },
+    { q: "Por que muitos peixes dependem da cheia?",
+      options: ["Porque a água da cheia é mais fria e mais limpa", "Os campos alagados dão comida e abrigo aos filhotes", "Porque a cheia afasta todos os predadores dos rios", "Porque só na cheia existe oxigênio dissolvido na água"],
       answer: 1,
-      explain: "Vegetação e solos podem estocar carbono, ajudando a reduzir gases de efeito estufa (e a aliviar extremos)."
-    },
-    {
-      q: "Qual é um risco quando o regime de cheias muda demais (por clima/uso da terra)?",
-      options: ["Impactar reprodução de peixes e disponibilidade de alimento", "Aumentar pinguins", "Criar montanhas", "Fazer chover confete"],
+      explain: "Na cheia os peixes jovens entram nos campos alagados, onde encontram comida e esconderijo." },
+    { q: "O que é a decoada?",
+      options: ["A cor escura e barrenta que a água ganha na seca", "Uma festa tradicional dos pescadores de Corumbá", "Queda do oxigênio na água no início da cheia", "O assoreamento das baías depois que a cheia passa"],
+      answer: 2,
+      explain: "Quando a cheia cobre muito capim e folhas, a decomposição consome o oxigênio da água e pode matar peixes." },
+    { q: "O que é assoreamento?",
+      options: ["Aumento da quantidade de sal na água do rio", "Erosão das margens causada pelo vento na seca", "Crescimento de algas verdes na superfície da água", "Acúmulo de sedimentos que deixa o rio raso"],
+      answer: 3,
+      explain: "Terra levada pela erosão se deposita no leito e o rio fica mais raso, o que muda a navegação e os habitats." },
+    { q: "A polinização feita por abelhas é um serviço de qual tipo?",
+      options: ["Regulação", "Provisão", "Cultural", "Suporte (base)"],
       answer: 0,
-      explain: "Mudanças no pulso de inundação alteram habitats, ciclo de nutrientes e cadeias alimentares."
-    },
-    {
-      q: "Qual relação é mais correta?",
-      options: ["Mais vegetação ciliar → melhor proteção das margens", "Mais desmatamento → menos erosão", "Mais lixo → mais água potável", "Mais fogo → mais estabilidade"],
-      answer: 0,
-      explain: "Vegetação ciliar estabiliza margens, reduz sedimentos e protege áreas de reprodução e abrigo."
-    },
-    {
-      q: "A biodiversidade também ajuda no controle biológico porque…",
-      options: ["Todos os bichos comem só sorvete", "Predadores e competidores equilibram populações", "Insetos viram drones", "Nada se relaciona com nada"],
+      explain: "A polinização é classificada como serviço de regulação, porque regula a reprodução de plantas, inclusive de lavouras." },
+    { q: "Por que o desmatamento no planalto afeta o Pantanal?",
+      options: ["Deixa o clima da planície mais frio e mais úmido", "Aumenta a erosão e manda sedimentos para baixo", "Faz os rios correrem para o lado contrário ao normal", "Diminui a quantidade de peixes no oceano Atlântico"],
       answer: 1,
-      explain: "Relações ecológicas (predação/competição) ajudam a evitar explosões populacionais de algumas espécies."
-    },
-    {
-      q: "Serviços ecossistêmicos de ‘suporte’ incluem…",
-      options: ["Ciclagem de nutrientes e formação do solo", "Trocar tela do celular", "Tocar sirene", "Pintar nuvem"],
-      answer: 0,
-      explain: "Sem ciclagem de nutrientes e solo funcional, o resto (produção, regulação, cultura) desanda."
-    }
+      explain: "Os rios nascem no planalto. Solo exposto lá em cima vira sedimento que desce e assoreia rios da planície, como o Taquari." },
+    { q: "Ecossistemas com alta biodiversidade tendem a ser...",
+      options: ["Mais frágeis diante de qualquer mudança no ambiente", "Mais pobres em alimento para os animais", "Mais capazes de se recuperar de perturbações", "Iguais aos ecossistemas que têm poucas espécies"],
+      answer: 2,
+      explain: "Com mais espécies, se uma diminui, outra pode cumprir função parecida. Isso ajuda o sistema a se recuperar." },
+    { q: "Para que serve o defeso da piracema?",
+      options: ["Para liberar a pesca de qualquer tamanho", "Para limpar o leito dos rios", "Para medir o nível dos rios", "Para proteger os peixes na reprodução"],
+      answer: 3,
+      explain: "Durante o defeso a pesca é restrita para os peixes conseguirem se reproduzir e manter as populações." }
   ],
 
   4: [
-    {
-      q: "Quando matéria orgânica se decompõe em áreas alagadas, pode gerar…",
-      options: ["Metano (CH₄) e CO₂", "Oxigênio líquido", "Granizo de chocolate", "Arco‑íris sólido"],
+    { q: "Em solo alagado com pouco oxigênio, a decomposição pode liberar...",
+      options: ["Metano (CH₄)", "Ozônio (O₃)", "Hélio (He)", "Cloro gasoso (Cl₂)"],
       answer: 0,
-      explain: "Em ambientes alagados e com pouco oxigênio, a decomposição pode produzir CH₄ além de CO₂."
-    },
-    {
-      q: "Qual prática costuma reduzir a qualidade da água?",
-      options: ["Manter vegetação ripária", "Esgoto sem tratamento", "Proteção de nascentes", "Uso responsável do solo"],
+      explain: "Sem oxigênio, microrganismos decompõem a matéria orgânica e produzem metano. Áreas úmidas são grandes fontes naturais desse gás." },
+    { q: "O que é eutrofização?",
+      options: ["Falta de água nos rios durante os meses de seca", "Excesso de nutrientes que faz algas crescerem demais", "Aumento da quantidade de sal na água das lagoas", "Endurecimento do solo causado pelo pisoteio do gado no campo"],
       answer: 1,
-      explain: "Esgoto sem tratamento adiciona nutrientes e patógenos, podendo causar eutrofização e riscos à saúde."
-    },
-    {
-      q: "Eutrofização é quando…",
-      options: ["Falta água no planeta", "Excesso de nutrientes causa crescimento exagerado de algas", "Peixes aprendem matemática", "O rio vira estrada"],
-      answer: 1,
-      explain: "Nutrientes demais (N e P) podem gerar blooms de algas/cianobactérias e diminuir oxigênio na água."
-    },
-    {
-      q: "Por que áreas úmidas ajudam a filtrar água?",
-      options: ["Porque têm ‘plantas-filtro’ e sedimentos que retêm partículas", "Porque a água fica com medo e foge", "Porque o sol ferve tudo", "Porque tudo evapora"],
+      explain: "Nitrogênio e fósforo em excesso, vindos de esgoto e adubo, fazem algas crescerem demais e o oxigênio da água cair." },
+    { q: "Plantas e algas tiram CO₂ do ar por qual processo?",
+      options: ["Respiração celular", "Fermentação", "Fotossíntese", "Evaporação"],
+      answer: 2,
+      explain: "Na fotossíntese, a energia da luz transforma CO₂ e água em açúcares, a base da cadeia alimentar." },
+    { q: "Onde o carbono pode ficar guardado por muito tempo numa área úmida?",
+      options: ["Na fumaça que sobe das queimadas", "No vapor de água que sai das lagoas", "Nas penas das aves aquáticas migratórias", "No sedimento e no solo alagado"],
+      answer: 3,
+      explain: "Com pouco oxigênio a decomposição é lenta, e a matéria orgânica se acumula no fundo por muitos anos." },
+    { q: "Comparado ao CO₂, quilo por quilo, o metano...",
+      options: ["Aquece muito mais a atmosfera", "Aquece um pouco menos que o CO₂", "Não tem efeito sobre a temperatura", "Esfria a atmosfera"],
       answer: 0,
-      explain: "Vegetação e sedimentos podem reter partículas e transformar nutrientes, melhorando qualidade da água (depende do caso)."
-    },
-    {
-      q: "Um exemplo de serviço ‘cultural’ do Pantanal é…",
-      options: ["Tradicionalidades, saberes locais e turismo", "Explodir barragens", "Cobrir tudo de asfalto", "Apagar a história"],
-      answer: 0,
-      explain: "Cultura, identidade, lazer e conhecimento tradicional são serviços ecossistêmicos culturais."
-    },
-    {
-      q: "Conservar o Pantanal ajuda as cidades porque…",
-      options: ["Aumenta enchentes", "Melhora água, reduz extremos e sustenta economia local", "Desliga a chuva", "Acaba com a pesca"],
+      explain: "Em 100 anos, cada quilo de metano aquece cerca de 27 a 30 vezes mais que um quilo de CO₂ (IPCC, 2021)." },
+    { q: "O que o esgoto sem tratamento causa num rio?",
+      options: ["Mais peixes e água mais clara e transparente", "Falta de oxigênio e risco de doenças", "Água mais fria e mais funda", "Nada, pois a correnteza dilui toda a sujeira"],
       answer: 1,
-      explain: "Serviços ecossistêmicos sustentam abastecimento, pesca, turismo e reduzem impactos de eventos extremos."
-    }
+      explain: "A matéria orgânica do esgoto consome o oxigênio da água, e os microrganismos trazem risco de doenças." },
+    { q: "Como se chamam as partículas finas da fumaça que entram fundo no pulmão?",
+      options: ["CO₂ sólido", "Ozônio pesado", "PM2,5", "Pólen de capim"],
+      answer: 2,
+      explain: "PM2,5 são partículas menores que 2,5 micrômetros. Elas chegam aos alvéolos e pioram doenças respiratórias." },
+    { q: "Como as áreas úmidas ajudam a reduzir enchentes?",
+      options: ["Fazem a chuva cair no oceano", "Secam o solo das cidades vizinhas", "Aumentam a velocidade dos rios", "Guardam água e soltam aos poucos"],
+      answer: 3,
+      explain: "A planície funciona como uma esponja. Ela recebe o excesso de água na cheia e libera devagar." }
   ],
 
   5: [
-    {
-      q: "Qual combinação descreve melhor um ‘sistema acoplado’ no Pantanal?",
-      options: ["Água + solo + organismos + clima interagindo", "Só um bicho sozinho", "Só uma árvore isolada", "Somente uma pedra"],
+    { q: "Em 2020, os incêndios queimaram cerca de quanto do Pantanal brasileiro?",
+      options: ["Cerca de 30%", "Menos de 3%", "Cerca de 60%", "Quase 90%"],
       answer: 0,
-      explain: "Ecossistemas são redes: hidrologia, solo, plantas, animais e clima se influenciam o tempo todo."
-    },
-    {
-      q: "Quando ocorre uma seca extrema, quais serviços podem ser afetados?",
-      options: ["Pesca, abastecimento, biodiversidade e regulação climática", "Somente o Wi‑Fi", "Apenas o relógio", "Nada muda"],
+      explain: "Os incêndios de 2020 atingiram perto de 30% da área do bioma no Brasil." },
+    { q: "Um estudo estimou quantos vertebrados mortos diretamente pelo fogo de 2020?",
+      options: ["Por volta de 17 mil", "Cerca de 17 milhões", "Cerca de 170", "Mais de 1,7 bilhão"],
+      answer: 1,
+      explain: "Tomas e colaboradores (2021, Scientific Reports) estimaram cerca de 17 milhões, a maioria serpentes, aves e roedores pequenos." },
+    { q: "A Lei 14.944/2024 criou a política nacional de...",
+      options: ["Pesca esportiva e amadora", "Criação de gado de corte", "Manejo integrado do fogo", "Turismo rural e de aventura"],
+      answer: 2,
+      explain: "A Política Nacional de Manejo Integrado do Fogo une prevenção, brigadas e uso planejado do fogo." },
+    { q: "O que é um aceiro?",
+      options: ["Um poço para guardar água da chuva", "Uma torre para vigiar o fogo à distância", "Uma cerca que separa o gado do rio", "Faixa sem vegetação que barra o fogo"],
+      answer: 3,
+      explain: "Sem plantas para queimar, o fogo não atravessa a faixa. É uma das principais formas de prevenção." },
+    { q: "Drenar áreas alagáveis para plantar tende a...",
+      options: ["Reduzir o estoque de água e de carbono", "Aumentar a reprodução dos peixes nativos", "Deixar a cheia mais previsível e mais curta", "Criar mais habitat para as aves aquáticas"],
       answer: 0,
-      explain: "Secas extremas mudam habitats, disponibilidade de água e produtividade — afetando múltiplos serviços."
-    },
-    {
-      q: "Qual é uma estratégia inteligente para reduzir incêndios severos?",
-      options: ["Manejo integrado do fogo e prevenção", "Ignorar tudo", "Colocar fogo para ‘limpar’ sempre", "Jogar óleo no capim"],
-      answer: 0,
-      explain: "Prevenção, monitoramento e manejo integrado (com ciência e comunidades) reduzem risco e severidade."
-    },
-    {
-      q: "O que é ‘resiliência’ do ecossistema?",
-      options: ["Capacidade de se recuperar após perturbações", "Capacidade de virar concreto", "Capacidade de parar o tempo", "Capacidade de sumir"],
-      answer: 0,
-      explain: "Resiliência é a habilidade de resistir e se recuperar, mantendo funções essenciais."
-    },
-    {
-      q: "Para um Pantanal saudável, qual atitude é mais coerente?",
-      options: ["Planejar uso do solo e proteger áreas alagáveis", "Drenar tudo para ‘ganhar terra’", "Cortar matas ciliares", "Poluir nascentes"],
-      answer: 0,
-      explain: "Proteção de áreas-chave e planejamento territorial ajudam a manter o pulso de inundação e serviços ecossistêmicos."
-    },
-    {
-      q: "Você completou o nível 5. Qual mensagem combina mais?",
-      options: ["Pantanal vivo = gente bem", "Pantanal só serve pra foto", "Serviço ecossistêmico é meme", "Ciência é chata"],
-      answer: 0,
-      explain: "Pantanal vivo sustenta biodiversidade, água, alimento, cultura e clima. Ciência pode ser divertida — e útil."
-    }
+      explain: "Com o solo seco, a matéria orgânica se decompõe e vira CO₂, e a planície deixa de reter água." },
+    { q: "O que significa resiliência de um ecossistema?",
+      options: ["Capacidade de nunca sofrer mudanças ao longo do tempo", "Capacidade de se recuperar de uma perturbação", "Capacidade de crescer mesmo sem água", "Capacidade de impedir que ocorra qualquer incêndio"],
+      answer: 1,
+      explain: "Um ecossistema resiliente sofre o impacto, mas recupera suas funções com o tempo." },
+    { q: "Por que o fogo se espalha mais nas secas longas?",
+      options: ["O ar da seca fica com mais oxigênio", "Os rios ficam mais quentes e evaporam mais rápido", "A vegetação seca vira combustível fácil", "A pouca chuva que cai carrega faíscas"],
+      answer: 2,
+      explain: "Capim e folhas secas pegam fogo com facilidade, e o solo orgânico seco também pode queimar por baixo." },
+    { q: "Qual medida ajuda a manter o pulso de inundação?",
+      options: ["Construir diques altos em volta de todas as baías", "Drenar os campos alagáveis para o gado", "Abrir canais retos e fundos nos corixos", "Evitar barragens e drenos que mudem o fluxo"],
+      answer: 3,
+      explain: "Barragens e drenos alteram quando e quanto a água chega à planície, e isso muda todo o ciclo de cheia e seca." }
   ]
 };

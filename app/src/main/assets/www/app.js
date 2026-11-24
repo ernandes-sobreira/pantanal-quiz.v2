@@ -17,9 +17,11 @@
     name: "",
     questions: [],
     answered: false,
+    levelRight: 0,
   };
 
-  const QUESTIONS_PER_LEVEL = 6;
+  const QUESTIONS_PER_LEVEL = 8;
+  const META = 6; // acertos mínimos para passar de nível
   const MAX_LEVEL = 5;
 
   function show(screen){
@@ -60,21 +62,17 @@
     const bank = window.QUESTION_BANK || {};
     const list = bank[level] || [];
     // garante tamanho mínimo (repete se necessário)
-    const out = [];
-    for(let i=0;i<QUESTIONS_PER_LEVEL;i++){
-      out.push(list[i % list.length]);
-    }
-    // embaralha leve
-    for(let i=out.length-1;i>0;i--){
-      const j = Math.floor(Math.random()*(i+1));
-      [out[i],out[j]] = [out[j],out[i]];
-    }
-    return out;
+    const shuffle = (a)=>{ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+    // sorteia sem repetir e embaralha a ordem das alternativas
+    return shuffle(list.slice()).slice(0, QUESTIONS_PER_LEVEL).map(q=>{
+      const order = shuffle(q.options.map((_,i)=>i));
+      return { q: q.q, explain: q.explain, options: order.map(i=>q.options[i]), answer: order.indexOf(q.answer) };
+    });
   }
 
   function updateStatus(){
     $("pillLevel").textContent = `Nível ${state.level}`;
-    $("pillProgress").textContent = `${state.idx+1}/${QUESTIONS_PER_LEVEL}`;
+    $("pillProgress").textContent = `${state.idx+1}/${QUESTIONS_PER_LEVEL} · ✅ ${state.levelRight}/${META}`;
     $("pillScore").textContent = `⭐ ${state.score}`;
   }
 
@@ -112,12 +110,13 @@
       btnEl.classList.add("correct");
       state.score += 2 + (state.level-1); // cresce com nível
       state.right += 1;
+      state.levelRight += 1;
       $("explainTitle").textContent = "Boa! ✅";
     }else{
       btnEl.classList.add("wrong");
       const correctBtn = buttons[q.answer];
       if(correctBtn) correctBtn.classList.add("correct");
-      state.score = Math.max(0, state.score - 1); // penalidade leve
+      state.score = Math.max(0, state.score - 2); // erro custa pontos
       state.wrong += 1;
       $("explainTitle").textContent = "Quase! 😅";
     }
@@ -133,7 +132,9 @@
       return;
     }
     // fim do nível
-    if(state.level < MAX_LEVEL){
+    if(state.levelRight < META){
+      showRetry();
+    }else if(state.level < MAX_LEVEL){
       showLevelUp();
     }else{
       showFinal();
@@ -155,8 +156,20 @@
     saveProgress();
   }
 
+  function showRetry(){
+    state.retry = true;
+    show("levelUp");
+    $("bigBadge").textContent = "🔁";
+    $("levelUpTitle").textContent = `Faltou pouco no nível ${state.level}`;
+    $("levelUpText").textContent = `Você acertou ${state.levelRight} de ${QUESTIONS_PER_LEVEL}. Para avançar é preciso acertar pelo menos ${META}. Leia as explicações e tente de novo.`;
+    $("btnNextLevel").textContent = "Repetir nível";
+    saveProgress();
+  }
+
   function goNextLevel(){
+    if(state.retry){ state.retry = false; $("btnNextLevel").textContent = "Avançar de fase"; startLevel(state.level); return; }
     state.level += 1;
+    state.levelRight = 0;
     state.idx = 0;
     state.questions = getLevelQuestions(state.level);
     saveProgress();
@@ -207,6 +220,7 @@ Eu sou guardião(a) do Pantanal! 🐆💧
   function startLevel(level){
     state.level = level;
     state.idx = 0;
+    state.levelRight = 0;
     state.name = $("playerName").value.trim() || state.name || "";
     state.questions = getLevelQuestions(level);
     saveProgress();
